@@ -27,8 +27,8 @@ estadinsllista(X,[Y|_]):- igual(X,Y).
 estadinsllista(X,[_|L1]):- estadinsllista(X,L1).
 
 
-repeticio([X|_],Y) :- esborrar(X,Y,L),estadinsllista(X,L).
-repeticio([_|L],Y):- repeticio(L,Y),!.
+repeticio([X|_],Y) :- esborrar(X,Y,L),estadinsllista(X,L),!.
+repeticio([_|L],Y):- repeticio(L,Y).
 
 repetides(X):- repeticio(X,X).
 %----------------------
