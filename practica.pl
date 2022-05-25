@@ -1,8 +1,8 @@
 pertany(X,[X|_]).
 pertany(X,[_|L]):-pertany(X,L).
 
-esborrar(_,[],[]).
-esborrar(X,[X|L],L) :- !.
+esborrar(_,[],[]):- !.
+esborrar(X,[X|L],L):- !.
 esborrar(X,[Y|L1],[Y|L2]):-esborrar(X,L1,L2).
 
 afegir([],L,L).
