@@ -1,3 +1,11 @@
+%----------------------
+%Includes
+%----------------------
+:-consult(auxiliar).
+%----------------------
+%Preamble
+%----------------------
+
 pertany(X,[X|_]).
 pertany(X,[_|L]):-pertany(X,L).
 
@@ -32,3 +40,23 @@ repeticio([_|L],Y):- repeticio(L,Y).
 
 repetides(X):- repeticio(X,X).
 %----------------------
+%Section 3 (1 points)
+%----------------------
+salta(0).
+salta(N):-nl,N1 is N-1,salta(N1).
+escriuBlanc(0).
+escriuBlanc(N):-N1 is N-1,write(' '),escriuBlanc(N1).
+mostra([],_,_,_) :- !.
+mostra([H|Q],F,C,horitzontal):-gotoXY(C,F),escriu(H,blau),F1 is F+2,mostra(Q,F1,C,horitzontal),!.
+mostra([H|Q],F,C,vertical):-gotoXY(C,F),escriu(H,vermell),C1 is C+2,mostra(Q,F,C1,vertical),!.
+%----------------------
+%Section 4 (4 points)
+%----------------------
+matriu(M):-afegir([[7,0,13,0,11,0],[11,0,11,12,11,2,11,12],[3,9,3,13],[]],[],M).
+car([H|_],H).
+mida([],0).
+mida([_|Q],N):-mida(Q,N1),N is N1 + 1.
+trobaPrimera(N):-paraula(L),afegir(car(L),[],P),mida(P,M),N=M,!.
+creuats:-nl.
+creuats :- paraula(_).
+puta(X):- mostra(X,20,5,vertical),mostra(X,20,5,horitzontal).
