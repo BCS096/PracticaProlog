@@ -117,7 +117,7 @@ creuats:-
     mostra(P5,52,16,vertical),nl,
     mostra(P6,36,10,vertical),nl,
     mostra(P7,16,24,horitzontal),nl,
-    mostra(P8,8,10,vertical),nl,
+    mostra(P8,8,10,horitzontal),nl,
     mostra(P9,28,4,vertical),nl,
     mostra(P10,20,2,vertical),nl,
     mostra(P11,0,6,horitzontal),nl,
