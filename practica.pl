@@ -134,6 +134,9 @@ creuats:-
 getParaula(X):-paraula(_,_,P,nom,comu,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X).
 getParaula(X):-paraula(_,_,P,adjectiu,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X).
 getParaula(X):-paraula(_,_,P,verb,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X).
+getParaula(X):-paraula(_,_,P,nom,comu,_,_,_,_,_,_,_,_,_,_),atom_chars(P,Y),reverse(Y,X).
+getParaula(X):-paraula(_,_,P,adjectiu,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,Y),reverse(Y,X).
+getParaula(X):-paraula(_,_,P,verb,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,Y),reverse(Y,X).
 
 creuats2:-
     getParaula(P1),mida(P1,7),
@@ -203,3 +206,5 @@ creuats2:-
     mostra(P13,8,10,vertical),nl,
     mostra(P14,4,20,horitzontal),nl,
     gotoXY(30,0).%Aix� no molesta el "true"
+
+
