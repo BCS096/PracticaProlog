@@ -53,6 +53,8 @@ mostra([H|Q],F,C,vertical):-gotoXY(C,F),escriu(H,vermell),C1 is C+2,mostra(Q,F,C
 %----------------------
 %Section 4 (4 points)
 %----------------------
+% FALTA QUE EL MÉTODO DE CREUATS USE LA FUNCIÓN DE REPETIDES CREO
+% ---------------------
 car([H|_],H).
 mida([],0).
 mida([_|Q],N):-mida(Q,N1),N is N1 + 1.
