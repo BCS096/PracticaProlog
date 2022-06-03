@@ -7,59 +7,68 @@
 %Preamble
 %----------------------
 
+%verificar si un element pertany a una llista
 pertany(X,[X|_]).
 pertany(X,[_|L]):-pertany(X,L).
 
+%esborrar l'element d'una llista
 esborrar(_,[],[]):- !.
 esborrar(X,[X|L],L):- !.
 esborrar(X,[Y|L1],[Y|L2]):-esborrar(X,L1,L2).
 
+%afegir un element al final d'una llista
 afegir([],L,L).
 afegir([X|L1],L2,[X|L3]):-afegir(L1,L2,L3).
 
+%invertir una llista
 invertir([X],[X]).
 invertir([X|L1],L2):-invertir(L1,L3), afegir(L3,[X],L2).
+
 %----------------------
 %section 1 (1,5 points)
 %----------------------
+%llista de paraules al endret o al revés
 paraula(X):- member(Y,[democracia, encontrarse, emboscar, abordaje, convexo, evadirse, elevarse, escuela,
 cuerpo, jugar, juicio, error, vicio, rea]),atom_chars(Y,X).
 
 paraula(X):- member(Y,[democracia, encontrarse, emboscar, abordaje, convexo, evadirse, elevarse, escuela,
 cuerpo, jugar, juicio, error, vicio, rea]),atom_chars(Y,Z),reverse(Z,X).
+
 %----------------------
 %section 2 (1,5 points)
 %----------------------
+
+%comprovar que dues llistes siguin iguals
 igual([],[]).
 igual([X|L1],[X|L2]):- igual(L1,L2).
-
+%comprovar si un element esta dins la llista
 estadinsllista(X,[Y|_]):- igual(X,Y).
 estadinsllista(X,[_|L1]):- estadinsllista(X,L1).
 
-
+%buscam paraules repetides
 repeticio([X|_],Y) :- esborrar(X,Y,L),estadinsllista(X,L),!.
 repeticio([_|L],Y):- repeticio(L,Y).
 
 repetides(X):- repeticio(X,X).
+
 %----------------------
 %Section 3 (1 points)
 %----------------------
-salta(0).
-salta(N):-nl,N1 is N-1,salta(N1).
-escriuBlanc(0).
-escriuBlanc(N):-N1 is N-1,write(' '),escriuBlanc(N1).
+
+%mostra(X,Fila,Columna,Orientacio), pimtam cada element H en la posicio indicada FxC, 
+%blau i esapis de 4 per horitzontal, vermell i esapis de 2 per vertical 
 mostra([],_,_,_) :- !.
 mostra([H|Q],F,C,horitzontal):-gotoXY(C,F),escriu(H,blau),F1 is F+4,mostra(Q,F1,C,horitzontal),!.
 mostra([H|Q],F,C,vertical):-gotoXY(C,F),escriu(H,vermell),C1 is C+2,mostra(Q,F,C1,vertical),!.
+
 %----------------------
 %Section 4 (4 points)
 %----------------------
-% FALTA QUE EL MÉTODO DE CREUATS USE LA FUNCIÓN DE REPETIDES CREO
-% ---------------------
-car([H|_],H).
 mida([],0).
 mida([_|Q],N):-mida(Q,N1),N is N1 + 1.
-trobaPrimera(N):-paraula(L),afegir(car(L),[],P),mida(P,M),N=M,!.
+
+%Per a una paraula amb una mida N qualsevol,  comprovarem les paraules següents amb aquesta mateixa mida N
+%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repetició, i així amb totes les mides que tenim
 creuats:-
     paraula(P1),mida(P1,7),
     paraula(P2),mida(P2,11),
@@ -132,6 +141,7 @@ creuats:-
 %----------------------
 %Section 5 (2 points)
 %----------------------
+%carregam paraules
 paraula3(X):-
     paraula(_,_,P,nom,comu,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X).
 paraula3(X):-
@@ -144,7 +154,8 @@ paraula3(X):-
     paraula(_,_,P,adjectiu,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X),reverse(P,X).
 paraula3(X):-
     paraula(_,_,P,verb,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X),reverse(P,X).
-
+%Per a una de les noves paraula amb una mida N qualsevol,  comprovarem les paraules següents amb aquesta mateixa mida N
+%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repetició, i així amb totes les mides que tenim
 creuats2:-
     paraula3(P1),mida(P1,7),
 
