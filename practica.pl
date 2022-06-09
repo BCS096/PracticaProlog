@@ -1,3 +1,11 @@
+%-----------------------------------------
+% Pràctica PROLOG
+% 21721 - Llenguatges de Programació. Grup 1 (Mallorca)
+% Bartomeu Capó Salas
+% Damián Gebhard Galeote
+% Marc Torres Torres
+% Emanuel Hegedüs
+%-----------------------------------------
 %----------------------
 %Includes
 %----------------------
@@ -6,10 +14,6 @@
 %----------------------
 %Preamble
 %----------------------
-
-%verificar si un element pertany a una llista
-pertany(X,[X|_]).
-pertany(X,[_|L]):-pertany(X,L).
 
 %esborrar l'element d'una llista
 esborrar(_,[],[]):- !.
@@ -55,8 +59,8 @@ repetides(X):- repeticio(X,X).
 %Section 3 (1 points)
 %----------------------
 
-%mostra(X,Fila,Columna,Orientacio), pimtam cada element H en la posicio indicada FxC, 
-%blau i esapis de 4 per horitzontal, vermell i esapis de 2 per vertical 
+%mostra(X,Fila,Columna,Orientacio), pimtam cada element H en la posicio indicada FxC,
+%blau i esapis de 4 per horitzontal, vermell i esapis de 2 per vertical
 mostra([],_,_,_) :- !.
 mostra([H|Q],F,C,horitzontal):-gotoXY(C,F),escriu(H,blau),F1 is F+4,mostra(Q,F1,C,horitzontal),!.
 mostra([H|Q],F,C,vertical):-gotoXY(C,F),escriu(H,vermell),C1 is C+2,mostra(Q,F,C1,vertical),!.
@@ -137,7 +141,7 @@ creuats:-
     mostra(P13,8,10,vertical),nl,
     mostra(P14,4,20,horitzontal),nl,
     gotoXY(30,0).%AixÃ¯Â¿Â½ no molesta el "true"
-    
+
 %----------------------
 %Section 5 (2 points)
 %----------------------
