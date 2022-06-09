@@ -1,10 +1,10 @@
 %-----------------------------------------
-% Pràctica PROLOG
-% 21721 - Llenguatges de Programació. Grup 1 (Mallorca)
-% Bartomeu Capó Salas
-% Damián Gebhard Galeote
+% Prï¿½ctica PROLOG
+% 21721 - Llenguatges de Programaciï¿½. Grup 1 (Mallorca)
+% Bartomeu Capï¿½ Salas
+% Damiï¿½n Gebhard Galeote
 % Marc Torres Torres
-% Emanuel Hegedüs
+% Emanuel Hegedï¿½s
 %-----------------------------------------
 %----------------------
 %Includes
@@ -76,52 +76,39 @@ mida([_|Q],N):-mida(Q,N1),N is N1 + 1.
 creuats:-
     paraula(P1),mida(P1,7),
     paraula(P2),mida(P2,11),
-    \+ igual(P1,P2),invertir(P2,P2I),\+ igual(P1,P2I),
     nth1(5,P1,X),nth1(1,P2,X),
     paraula(P3),mida(P3,5),
-    \+ igual(P2,P3),invertir(P3,P3I),\+ igual(P2,P3I),
     nth1(3,P2,X1),nth1(3,P3,X1),
     paraula(P4),mida(P4,7),
-    \+ igual(P3,P4),invertir(P4,P4I),\+ igual(P3,P4I),
     \+ igual(P1,P4),\+ igual(P1,P4I),
     nth1(11,P2,X2),nth1(5,P4,X2),
     paraula(P5),mida(P5,3),
-    \+ igual(P4,P5),invertir(P5,P5I),\+ igual(P4,P5I),
     nth1(7,P4,X3),nth1(3,P5,X3),
     paraula(P6),mida(P6,8),
-    \+ igual(P5,P6),invertir(P6,P6I),\+ igual(P5,P6I),
     nth1(3,P4,X4),nth1(6,P6,X4),
     paraula(P7),mida(P7,10),
-    \+ igual(P6,P7),invertir(P7,P7I),\+ igual(P6,P7I),
     nth1(8,P6,X5),nth1(6,P7,X5),
     paraula(P8),mida(P8,8),
-    \+ igual(P7,P8),invertir(P8,P8I),\+ igual(P7,P8I),
     \+ igual(P6,P8),\+ igual(P6,P8I),
     nth1(1,P6,X6),nth1(8,P8,X6),
     paraula(P9),mida(P9,6),
-    \+ igual(P8,P9),invertir(P9,P9I),\+ igual(P8,P9I),
     nth1(6,P8,X7),nth1(4,P9,X7),
     paraula(P10),mida(P10,8),
-    \+ igual(P9,P10),invertir(P10,P10I),\+ igual(P9,P10I),
     \+ igual(P6,P10),\+ igual(P6,P10I),
     \+ igual(P8,P10),\+ igual(P8,P10I),
     nth1(4,P8,X8),nth1(5,P10,X8),
     paraula(P11),mida(P11,6),
-    \+ igual(P10,P11),invertir(P11,P11I),\+ igual(P10,P11I),
     \+ igual(P9,P11),\+ igual(P9,P11I),
     nth1(3,P10,X9),nth1(6,P11,X9),
     paraula(P12),mida(P12,5),
-    \+ igual(P11,P12),invertir(P12,P12I),\+ igual(P11,P12I),
     \+ igual(P3,P12),\+ igual(P3,P12I),
     nth1(1,P11,X10),nth1(1,P12,X10),
     paraula(P13),mida(P13,8),
-    \+ igual(P12,P13),invertir(P13,P13I),\+ igual(P12,P13I),
     \+ igual(P6,P13),\+ igual(P6,P13I),
     \+ igual(P8,P13),\+ igual(P8,P13I),
     \+ igual(P10,P13),\+ igual(P10,P13I),
     nth1(1,P8,X11),nth1(1,P13,X11),
     paraula(P14),mida(P14,5),
-    \+ igual(P13,P14),invertir(P14,P14I),\+ igual(P13,P14I),
     \+ igual(P3,P14),\+ igual(P3,P14I),
     \+ igual(P12,P14),\+ igual(P12,P14I),
     nth1(6,P13,X12),nth1(2,P14,X12),
@@ -140,12 +127,12 @@ creuats:-
     mostra(P12,0,6,vertical),nl,
     mostra(P13,8,10,vertical),nl,
     mostra(P14,4,20,horitzontal),nl,
-    gotoXY(30,0).%AixÃ¯Â¿Â½ no molesta el "true"
+    gotoXY(30,0).%AixÃ­ no molesta el "true"
 
 %----------------------
 %Section 5 (2 points)
 %----------------------
-%carregam paraules
+%Carregam paraules des del diccionari proporcionat, tant normals com inverses, de cada tipus requerit.
 paraula3(X):-
     paraula(_,_,P,nom,comu,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X).
 paraula3(X):-
@@ -164,64 +151,51 @@ creuats2:-
     paraula3(P1),mida(P1,7),
 
     paraula3(P2),mida(P2,11),
-    \+ igual(P1,P2),invertir(P2,P2I),\+ igual(P1,P2I),
     nth1(5,P1,X),nth1(1,P2,X),
 
     paraula3(P3),mida(P3,5),
-    \+ igual(P2,P3),invertir(P3,P3I),\+ igual(P2,P3I),
     nth1(3,P2,X1),nth1(3,P3,X1),
 
     paraula3(P4),mida(P4,7),
-    \+ igual(P3,P4),invertir(P4,P4I),\+ igual(P3,P4I),
     \+ igual(P1,P4),\+ igual(P1,P4I),
     nth1(11,P2,X2),nth1(5,P4,X2),
 
     paraula3(P5),mida(P5,3),
-    \+ igual(P4,P5),invertir(P5,P5I),\+ igual(P4,P5I),
     nth1(7,P4,X3),nth1(3,P5,X3),
 
     paraula3(P6),mida(P6,8),
-    \+ igual(P5,P6),invertir(P6,P6I),\+ igual(P5,P6I),
     nth1(3,P4,X4),nth1(6,P6,X4),
 
     paraula3(P7),mida(P7,10),
-    \+ igual(P6,P7),invertir(P7,P7I),\+ igual(P6,P7I),
     nth1(8,P6,X5),nth1(6,P7,X5),
 
     paraula3(P8),mida(P8,8),
-    \+ igual(P7,P8),invertir(P8,P8I),\+ igual(P7,P8I),
     \+ igual(P6,P8),\+ igual(P6,P8I),
     nth1(1,P6,X6),nth1(8,P8,X6),
 
     paraula3(P9),mida(P9,6),
-    \+ igual(P8,P9),invertir(P9,P9I),\+ igual(P8,P9I),
     nth1(6,P8,X7),nth1(4,P9,X7),
 
     paraula3(P10),mida(P10,8),
-    \+ igual(P9,P10),invertir(P10,P10I),\+ igual(P9,P10I),
     \+ igual(P6,P10),\+ igual(P6,P10I),
     \+ igual(P8,P10),\+ igual(P8,P10I),
     nth1(4,P8,X8),nth1(5,P10,X8),
 
     paraula3(P11),mida(P11,6),
-    \+ igual(P10,P11),invertir(P11,P11I),\+ igual(P10,P11I),
     \+ igual(P9,P11),\+ igual(P9,P11I),
     nth1(3,P10,X9),nth1(6,P11,X9),
 
     paraula3(P12),mida(P12,5),
-    \+ igual(P11,P12),invertir(P12,P12I),\+ igual(P11,P12I),
     \+ igual(P3,P12),\+ igual(P3,P12I),
     nth1(1,P11,X10),nth1(1,P12,X10),
 
     paraula3(P13),mida(P13,8),
-    \+ igual(P12,P13),invertir(P13,P13I),\+ igual(P12,P13I),
     \+ igual(P6,P13),\+ igual(P6,P13I),
     \+ igual(P8,P13),\+ igual(P8,P13I),
     \+ igual(P10,P13),\+ igual(P10,P13I),
     nth1(1,P8,X11),nth1(1,P13,X11),
 
     paraula3(P14),mida(P14,5),
-    \+ igual(P13,P14),invertir(P14,P14I),\+ igual(P13,P14I),
     \+ igual(P3,P14),\+ igual(P3,P14I),
     \+ igual(P12,P14),\+ igual(P12,P14I),
     nth1(6,P13,X12),nth1(2,P14,X12),
