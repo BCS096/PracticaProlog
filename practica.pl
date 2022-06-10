@@ -1,10 +1,10 @@
 %-----------------------------------------
-% Prï¿½ctica PROLOG
-% 21721 - Llenguatges de Programaciï¿½. Grup 1 (Mallorca)
-% Bartomeu Capï¿½ Salas
-% Damiï¿½n Gebhard Galeote
+% Pràctica PROLOG
+% 21721 - Llenguatges de Programació. Grup 1 (Mallorca)
+% Bartomeu Capó Salas
+% Damián Gebhard Galeote
 % Marc Torres Torres
-% Emanuel Hegedï¿½s
+% Emanuel Hegedüs
 %-----------------------------------------
 %----------------------
 %Includes
