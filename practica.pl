@@ -80,6 +80,7 @@ creuats:-
     paraula(P3),mida(P3,5),
     nth1(3,P2,X1),nth1(3,P3,X1),
     paraula(P4),mida(P4,7),
+    invertir(P4,P4I),
     \+ igual(P1,P4),\+ igual(P1,P4I),
     nth1(11,P2,X2),nth1(5,P4,X2),
     paraula(P5),mida(P5,3),
@@ -89,26 +90,32 @@ creuats:-
     paraula(P7),mida(P7,10),
     nth1(8,P6,X5),nth1(6,P7,X5),
     paraula(P8),mida(P8,8),
+    invertir(P8,P8I),
     \+ igual(P6,P8),\+ igual(P6,P8I),
     nth1(1,P6,X6),nth1(8,P8,X6),
     paraula(P9),mida(P9,6),
     nth1(6,P8,X7),nth1(4,P9,X7),
     paraula(P10),mida(P10,8),
+    invertir(P10,P10I),
     \+ igual(P6,P10),\+ igual(P6,P10I),
     \+ igual(P8,P10),\+ igual(P8,P10I),
     nth1(4,P8,X8),nth1(5,P10,X8),
     paraula(P11),mida(P11,6),
+    invertir(P11,P11I),
     \+ igual(P9,P11),\+ igual(P9,P11I),
     nth1(3,P10,X9),nth1(6,P11,X9),
     paraula(P12),mida(P12,5),
+    invertir(P12,P12I),
     \+ igual(P3,P12),\+ igual(P3,P12I),
     nth1(1,P11,X10),nth1(1,P12,X10),
     paraula(P13),mida(P13,8),
+    invertir(P13,P13I),
     \+ igual(P6,P13),\+ igual(P6,P13I),
     \+ igual(P8,P13),\+ igual(P8,P13I),
     \+ igual(P10,P13),\+ igual(P10,P13I),
     nth1(1,P8,X11),nth1(1,P13,X11),
     paraula(P14),mida(P14,5),
+    invertir(P14,P14I),
     \+ igual(P3,P14),\+ igual(P3,P14I),
     \+ igual(P12,P14),\+ igual(P12,P14I),
     nth1(6,P13,X12),nth1(2,P14,X12),
@@ -127,12 +134,12 @@ creuats:-
     mostra(P12,0,6,vertical),nl,
     mostra(P13,8,10,vertical),nl,
     mostra(P14,4,20,horitzontal),nl,
-    gotoXY(30,0).%Així no molesta el "true"
+    gotoXY(30,0).%AixÃ¯Â¿Â½ no molesta el "true"
 
 %----------------------
 %Section 5 (2 points)
 %----------------------
-%Carregam paraules des del diccionari proporcionat, tant normals com inverses, de cada tipus requerit.
+%carregam paraules
 paraula3(X):-
     paraula(_,_,P,nom,comu,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X).
 paraula3(X):-
@@ -145,8 +152,8 @@ paraula3(X):-
     paraula(_,_,P,adjectiu,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X),reverse(P,X).
 paraula3(X):-
     paraula(_,_,P,verb,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X),reverse(P,X).
-%Per a una de les noves paraula amb una mida N qualsevol,  comprovarem les paraules següents amb aquesta mateixa mida N
-%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repetició, i així amb totes les mides que tenim
+%Per a una de les noves paraula amb una mida N qualsevol,  comprovarem les paraules segÃ¼ents amb aquesta mateixa mida N
+%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repeticiÃ³, i aixÃ­ amb totes les mides que tenim
 creuats2:-
     paraula3(P1),mida(P1,7),
 
@@ -157,6 +164,7 @@ creuats2:-
     nth1(3,P2,X1),nth1(3,P3,X1),
 
     paraula3(P4),mida(P4,7),
+    invertir(P4,P4I),
     \+ igual(P1,P4),\+ igual(P1,P4I),
     nth1(11,P2,X2),nth1(5,P4,X2),
 
@@ -170,6 +178,7 @@ creuats2:-
     nth1(8,P6,X5),nth1(6,P7,X5),
 
     paraula3(P8),mida(P8,8),
+    invertir(P8,P8I),
     \+ igual(P6,P8),\+ igual(P6,P8I),
     nth1(1,P6,X6),nth1(8,P8,X6),
 
@@ -177,25 +186,30 @@ creuats2:-
     nth1(6,P8,X7),nth1(4,P9,X7),
 
     paraula3(P10),mida(P10,8),
+    invertir(P10,P10I),
     \+ igual(P6,P10),\+ igual(P6,P10I),
     \+ igual(P8,P10),\+ igual(P8,P10I),
     nth1(4,P8,X8),nth1(5,P10,X8),
 
     paraula3(P11),mida(P11,6),
+    invertir(P11,P11I),
     \+ igual(P9,P11),\+ igual(P9,P11I),
     nth1(3,P10,X9),nth1(6,P11,X9),
 
     paraula3(P12),mida(P12,5),
+    invertir(P12,P12I),
     \+ igual(P3,P12),\+ igual(P3,P12I),
     nth1(1,P11,X10),nth1(1,P12,X10),
 
     paraula3(P13),mida(P13,8),
+    invertir(P13,P13I),
     \+ igual(P6,P13),\+ igual(P6,P13I),
     \+ igual(P8,P13),\+ igual(P8,P13I),
     \+ igual(P10,P13),\+ igual(P10,P13I),
     nth1(1,P8,X11),nth1(1,P13,X11),
 
     paraula3(P14),mida(P14,5),
+    invertir(P14,P14I),
     \+ igual(P3,P14),\+ igual(P3,P14I),
     \+ igual(P12,P14),\+ igual(P12,P14I),
     nth1(6,P13,X12),nth1(2,P14,X12),
