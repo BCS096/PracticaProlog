@@ -1,10 +1,10 @@
 %-----------------------------------------
-% Pr�ctica PROLOG
-% 21721 - Llenguatges de Programaci�. Grup 1 (Mallorca)
-% Bartomeu Cap� Salas
-% Dami�n Gebhard Galeote
+% Pràctica PROLOG
+% 21721 - Llenguatges de Programació. Grup 1 (Mallorca)
+% Bartomeu Capó Salas
+% Damián Gebhard Galeote
 % Marc Torres Torres
-% Emanuel Heged�s
+% Emanuel Hegedüs
 %-----------------------------------------
 %----------------------
 %Includes
@@ -31,7 +31,7 @@ invertir([X|L1],L2):-invertir(L1,L3), afegir(L3,[X],L2).
 %----------------------
 %section 1 (1,5 points)
 %----------------------
-%llista de paraules al endret o al revés
+%llista de paraules al endret o al revÃ©s
 paraula(X):- member(Y,[democracia, encontrarse, emboscar, abordaje, convexo, evadirse, elevarse, escuela,
 cuerpo, jugar, juicio, error, vicio, rea]),atom_chars(Y,X).
 
@@ -71,8 +71,8 @@ mostra([H|Q],F,C,vertical):-gotoXY(C,F),escriu(H,vermell),C1 is C+2,mostra(Q,F,C
 mida([],0).
 mida([_|Q],N):-mida(Q,N1),N is N1 + 1.
 
-%Per a una paraula amb una mida N qualsevol,  comprovarem les paraules següents amb aquesta mateixa mida N
-%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repetició, i així amb totes les mides que tenim
+%Per a una paraula amb una mida N qualsevol,  comprovarem les paraules segÃ¼ents amb aquesta mateixa mida N
+%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repeticiÃ³, i aixÃ­ amb totes les mides que tenim
 creuats:-
     paraula(P1),mida(P1,7),
     paraula(P2),mida(P2,11),
@@ -134,7 +134,7 @@ creuats:-
     mostra(P12,0,6,vertical),nl,
     mostra(P13,8,10,vertical),nl,
     mostra(P14,4,20,horitzontal),nl,
-    gotoXY(30,0).%AixÃ¯Â¿Â½ no molesta el "true"
+    gotoXY(30,0).%AixÃƒÂ¯Ã‚Â¿Ã‚Â½ no molesta el "true"
 
 %----------------------
 %Section 5 (2 points)
@@ -152,8 +152,8 @@ paraula3(X):-
     paraula(_,_,P,adjectiu,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X),reverse(P,X).
 paraula3(X):-
     paraula(_,_,P,verb,_,_,_,_,_,_,_,_,_,_,_),atom_chars(P,X),reverse(P,X).
-%Per a una de les noves paraula amb una mida N qualsevol,  comprovarem les paraules segÃ¼ents amb aquesta mateixa mida N
-%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repeticiÃ³, i aixÃ­ amb totes les mides que tenim
+%Per a una de les noves paraula amb una mida N qualsevol,  comprovarem les paraules segÃƒÂ¼ents amb aquesta mateixa mida N
+%amb totes aquelles anteriors a ella, i les seves inverses, per assegurar la no repeticiÃƒÂ³, i aixÃƒÂ­ amb totes les mides que tenim
 creuats2:-
     paraula3(P1),mida(P1,7),
 
